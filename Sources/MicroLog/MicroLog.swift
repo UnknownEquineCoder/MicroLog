@@ -1,9 +1,17 @@
 import Foundation
 
-@frozen public enum MicroLog: String {
-    case info = "INFO"
-    case warning = "WARNING ⚠️"
-    case error = "ALERT ❌"
+@frozen public enum MicroLog {
+    case info
+    case warning
+    case error
+    
+    fileprivate var prefix: String {
+        switch self {
+            case .info: return "INFO"
+            case .warning: return "WARNING ⚠️"
+            case .error: return "ALERT ❌"
+        }
+    }
     
     @frozen public struct Context {
         let file: String
@@ -21,7 +29,7 @@ import Foundation
     }
     
     fileprivate func handleLog(str: String, shouldLogContext: Bool, context: Context) {
-        let logComponents = ["[\(rawValue)]", str]
+        let logComponents = ["[\(prefix)]", str]
         
         var fullString = logComponents.joined(separator: " ")
         if shouldLogContext {
@@ -39,12 +47,5 @@ import Foundation
         let context = Context(file: file, function: function, line: line)
         handleLog(str: str.description, shouldLogContext: shouldLogContext, context: context)
         #endif
-    }
-    
-    
-    
-    @available(*, deprecated, message: "initialiser will always return nil, use MicroLog.info, MicroLog.warning or MicroLog.error instead")
-    @discardableResult public init?(rawValue: String) {
-        return nil
     }
 }
