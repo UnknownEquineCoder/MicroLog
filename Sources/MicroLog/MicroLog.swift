@@ -1,5 +1,9 @@
 import Foundation
 
+/**
+ Small class to make logging easier and more convenient.
+ Refer to `MicroLog.info`, `MicroLog.warning` and `MicroLog.error` for documentation on usage.
+ */
 @frozen public enum MicroLog {
     /**
      Case for logging general information, behaves like a function.
@@ -81,9 +85,9 @@ import Foundation
      */
     fileprivate var prefix: String {
         switch self {
-            case .info: return "INFO"
-            case .warning: return "WARNING ⚠️"
-            case .error: return "ALERT ❌"
+            case .info:     return "[INFO]"
+            case .warning:  return "[WARNING ⚠️]"
+            case .error:    return "[ALERT ❌]"
         }
     }
     
@@ -111,7 +115,7 @@ import Foundation
         - context: Additional log context, only displayed when `verbose` is `true`.
      */
     fileprivate func compose(message: String, verbose: Bool, context: Context) {
-        let logComponents = ["[\(prefix)]", message]
+        let logComponents = ["\(prefix)", message]
         
         var fullString = logComponents.joined(separator: " ")
         
