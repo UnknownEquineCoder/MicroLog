@@ -1,7 +1,6 @@
 import Foundation
 
 @frozen public enum MicroLog {
-    
     /**
      Case for logging general information, behaves like a function.
      
@@ -20,6 +19,8 @@ import Foundation
      **Sample usage:**
      ```
      MicroLog.info("This is an example info message")
+     ```
+     ```
      MicroLog.info("This is an example info message", verbose: false)
      ```
      */
@@ -42,8 +43,10 @@ import Foundation
      
      **Sample usage:**
      ```
-     MicroLog.info("This is an example warning message")
-     MicroLog.info("This is an example warning message", verbose: false)
+     MicroLog.warning("This is an example warning message")
+     ```
+     ```
+     MicroLog.warning("This is an example warning message", verbose: false)
      ```
      */
     case warning
@@ -66,7 +69,9 @@ import Foundation
      **Sample usage:**
      ```
      MicroLog.error("This is an example error message")
-     MicroLog.info("This is an example error message", verbose: false)
+     ```
+     ```
+     MicroLog.error("This is an example error message", verbose: false)
      ```
     */
     case error
