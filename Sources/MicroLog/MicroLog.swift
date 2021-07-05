@@ -13,18 +13,12 @@ import Foundation
         }
     }
     
-    @frozen public struct Context {
+    fileprivate struct Context {
         let file: String
         let function: String
         let line: Int
         var description: String {
             return "\((file as NSString).lastPathComponent):\(line) \(function)"
-        }
-        
-        fileprivate init(file: String, function: String, line: Int) {
-            self.file = file
-            self.function = function
-            self.line = line
         }
     }
     
