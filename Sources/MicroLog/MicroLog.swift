@@ -87,7 +87,7 @@ import Foundation
         switch self {
             case .info:     return "ℹ️ [INFO]"
             case .warning:  return "⚠️ [WARNING]"
-            case .error:    return "❌ [ALERT]"
+            case .error:    return "❌ [ERROR]"
         }
     }
     
