@@ -115,7 +115,7 @@ import Foundation
         - context: Additional log context, only displayed when `verbose` is `true`.
      */
     fileprivate func compose(message: String, verbose: Bool, context: Context) {
-        var logMessage = "\(Date.currentTime)   \(prefix) \(message)"
+        var logMessage = "\(Date.currentTime) | \(prefix) \(message)"
         
         if verbose {
             logMessage += " ➜ \(context.description)"
