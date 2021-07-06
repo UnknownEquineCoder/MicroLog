@@ -124,7 +124,7 @@ import Foundation
     }
     
     /**
-     Function that transforms all MicroLog cases into functions.
+     Logs a message to the console. More context is included when in verbose mode.
      
      - parameters:
         - message: Log message, include any relevant information about the program state here. __required__
