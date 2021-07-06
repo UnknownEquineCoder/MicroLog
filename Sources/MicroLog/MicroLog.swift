@@ -85,9 +85,9 @@ import Foundation
      */
     fileprivate var prefix: String {
         switch self {
-            case .info:     return "[INFO]"
-            case .warning:  return "[WARNING ⚠️]"
-            case .error:    return "[ALERT ❌]"
+            case .info:     return "ℹ️ [INFO]"
+            case .warning:  return "⚠️ [WARNING]"
+            case .error:    return "❌ [ALERT]"
         }
     }
     
