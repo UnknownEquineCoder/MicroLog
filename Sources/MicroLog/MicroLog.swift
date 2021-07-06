@@ -111,22 +111,20 @@ import Foundation
      
      - parameters:
         - message: Log message.
-        - verbose: Flag signaling whether log should be full-length or a summary should be displayed instead.
+        - verbose: Flag signaling whether the log should be full-length or a summary should be displayed instead.
         - context: Additional log context, only displayed when `verbose` is `true`.
      */
     fileprivate func compose(message: String, verbose: Bool, context: Context) {
-        let logComponents = ["\(prefix)", message]
-        
-        var fullString = logComponents.joined(separator: " ")
+        var logMessage = "\(prefix) \(message)"
         
         if verbose {
-            fullString += " ➜ \(context.description)"
+            logMessage += " ➜ \(context.description)"
         }
-        print(fullString)
+        print(logMessage)
     }
     
     /**
-     Swift function that transforms all MicroLog cases into a function.
+     Function that transforms all MicroLog cases into functions.
      
      - parameters:
         - message: Log message, include any relevant information about the program state here. __required__
