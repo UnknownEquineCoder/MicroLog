@@ -98,11 +98,11 @@ import Foundation
      - Add file saving capabilities.
      */
     fileprivate struct Context {
-        let file: String
-        let function: String
-        let line: Int
+        let file: StaticString
+        let function: StaticString
+        let line: UInt
         var description: String {
-            return "\((file as NSString).lastPathComponent):\(line) \(function)"
+            return "\((file.description as NSString).lastPathComponent):\(line) \(function)"
         }
     }
     
@@ -135,9 +135,9 @@ import Foundation
      */
     public func callAsFunction(_ message: StaticString,
                                verbose: Bool = true,
-                               file: String = #file,
-                               function: String = #function,
-                               line: Int = #line) {
+                               file: StaticString = #file,
+                               function: StaticString = #function,
+                               line: UInt = #line) {
         #if DEBUG
         let context = Context(file: file, function: function, line: line)
         compose(message: message.description, verbose: verbose, context: context)
